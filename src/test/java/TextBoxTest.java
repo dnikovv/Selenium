@@ -2,7 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import pages.TextBox;
 
-public class SecondTest extends BaseClass{
+public class TextBoxTest extends BaseClass{
     @Test
     public void fillForm(){
         TextBox textBox = new TextBox(driver);

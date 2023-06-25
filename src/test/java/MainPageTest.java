@@ -2,7 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import pages.MainPage;
 
-public class FirstTestClass extends BaseClass {
+public class MainPageTest extends BaseClass {
 
     @Test
     public void openElementsInDemoQASite() throws InterruptedException {
