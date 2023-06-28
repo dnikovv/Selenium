@@ -1,8 +1,11 @@
+package Homework8;
+
+import Homework8.BaseClass;
 import org.junit.Assert;
 import org.junit.Test;
 import pages.TextBox;
 
-public class TextBoxTest extends BaseClass{
+public class TextBoxTest extends BaseClass {
     @Test
     public void fillForm(){
         TextBox textBox = new TextBox(driver);
