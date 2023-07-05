@@ -55,10 +55,10 @@ public class WebCoreElement extends Element{
         waiToBeClickable(by);
         webElement.click();
     }
-
     private boolean waiToBeClickable(By by) {
         try {
             WebDriverWait webDriverWait = new WebDriverWait(webDriver, 30);
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(by));
             webDriverWait.until(ExpectedConditions.elementToBeClickable(by));
             return true;
         } catch (TimeoutException e) {
@@ -69,12 +69,6 @@ public class WebCoreElement extends Element{
             return false;
         }
     }
-
-//    private boolean isVisible(By by) {
-//        WebDriverWait webDriverWait = new WebDriverWait(webDriver, 5);
-//        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(by));
-//        return true;
-//    }
 
     @Override
     public String getAttribute(String attributeName) {

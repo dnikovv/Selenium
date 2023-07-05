@@ -42,4 +42,9 @@ public class DriverDecorator extends Driver {
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
+
+    @Override
+    public void slowdownBetweenSteps(int delayInSeconds) {
+        driver.slowdownBetweenSteps(delayInSeconds);
+    }
 }

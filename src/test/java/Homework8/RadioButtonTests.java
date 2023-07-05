@@ -14,7 +14,7 @@ public class RadioButtonTests extends BaseClass {
         radioButton.yesRadioBtn().click();
         String actualResult = radioButton.outputSpan().getText();
         String expectedResult = "Yes";
-        Thread.sleep(3000);
+        driver.slowdownBetweenSteps(2);
         Assert.assertEquals(actualResult, expectedResult);
     }
 
@@ -25,7 +25,7 @@ public class RadioButtonTests extends BaseClass {
         radioButton.impressiveRadioBtn().click();
         String actualResult = radioButton.outputSpan().getText();
         String expectedResult = "Impressive";
-        Thread.sleep(3000);
+        driver.slowdownBetweenSteps(2);
         Assert.assertEquals(actualResult, expectedResult);
     }
 }

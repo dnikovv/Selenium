@@ -11,7 +11,7 @@ public class MainPageTest extends BaseClass {
         MainPage mainPage = new MainPage(driver);
         driver.goToUrl("https://demoqa.com/");
         mainPage.elementsSection().click();
-        Thread.sleep(3000);
+        driver.slowdownBetweenSteps(2);
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue("The URL does not contain the expected value", currentUrl.contains("elements"));
     }

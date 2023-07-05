@@ -14,6 +14,7 @@ public class TextBoxTest extends BaseClass {
         textBox.userEmail().typeText("test12@test.com");
         textBox.currentAddress().typeText("This is a simple Selenium test");
         textBox.permanentAddress().typeText("Learning Selenium");
+        driver.slowdownBetweenSteps(1);
         textBox.submitBtn().submit();
         Assert.assertTrue("The output window is not displayed", textBox.output().isDisplayed());
     }

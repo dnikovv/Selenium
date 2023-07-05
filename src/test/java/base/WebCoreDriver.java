@@ -2,6 +2,7 @@ package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -50,7 +51,7 @@ public class WebCoreDriver extends Driver {
 
     @Override
     public Element findElement(By locator) {
-        var nativeWebElement = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        WebElement nativeWebElement = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
         Element element = new WebCoreElement(webDriver, nativeWebElement, locator);
         Element logElememnt = new LogElement(element);
         return logElememnt;
@@ -68,8 +69,18 @@ public class WebCoreDriver extends Driver {
         return elements;
     }
 
+    public void slowdownBetweenSteps(int delayInSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(webDriver, delayInSeconds);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//dummyElement")));
+        } catch (TimeoutException e) {
+            // Handle timeout exception if needed
+        }
+    }
+
     @Override
     public String getCurrentUrl() {
         return webDriver.getCurrentUrl();
     }
+
 }
