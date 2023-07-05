@@ -1,6 +1,6 @@
 package Homework8;
 
-import Homework8.BaseClass;
+import base.BaseClass;
 import org.junit.Assert;
 import org.junit.Test;
 import pages.TextBox;
