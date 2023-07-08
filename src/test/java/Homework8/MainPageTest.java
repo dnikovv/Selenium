@@ -7,7 +7,7 @@ import pages.MainPage;
 public class MainPageTest extends BaseClass {
 
     @Test
-    public void openElementsInDemoQASite() throws InterruptedException {
+    public void openElementsInDemoQASite() {
         MainPage mainPage = new MainPage(driver);
         driver.goToUrl("https://demoqa.com/");
         mainPage.elementsSection().click();

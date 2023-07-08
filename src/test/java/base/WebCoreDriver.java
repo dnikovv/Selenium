@@ -74,7 +74,7 @@ public class WebCoreDriver extends Driver {
             WebDriverWait wait = new WebDriverWait(webDriver, delayInSeconds);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//dummyElement")));
         } catch (TimeoutException e) {
-            // Handle timeout exception if needed
+            System.out.println(e.getMessage());
         }
     }
 
