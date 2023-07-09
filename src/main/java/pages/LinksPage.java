@@ -14,4 +14,10 @@ public class LinksPage {
     public Element validLibnk(){
         return driver.findElement(By.xpath("//a[@href='http://demoqa.com' and text()='Click Here for Valid Link']"));
     }
+
+
+    public Element brokenLink(){
+        return driver.findElement(By.xpath("//a[contains(text(),'Click Here for Broken Link')]"));
+    }
+
 }

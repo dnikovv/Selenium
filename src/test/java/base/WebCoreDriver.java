@@ -2,6 +2,7 @@ package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WebCoreDriver extends Driver {
+public class WebCoreDriver extends Driver implements JavascriptExecutor {
     private org.openqa.selenium.WebDriver webDriver;
     private WebDriverWait webDriverWait;
 
@@ -83,4 +84,13 @@ public class WebCoreDriver extends Driver {
         return webDriver.getCurrentUrl();
     }
 
+    @Override
+    public Object executeScript(String script, Object... args) {
+        return ((JavascriptExecutor) webDriver).executeScript(script, args);
+    }
+
+    @Override
+    public Object executeAsyncScript(String script, Object... args) {
+        return ((JavascriptExecutor) webDriver).executeAsyncScript(script, args);
+    }
 }

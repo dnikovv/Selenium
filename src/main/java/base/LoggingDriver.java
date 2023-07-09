@@ -3,10 +3,11 @@ package base;
 import base.Driver;
 import base.DriverDecorator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.List;
 
-public class LoggingDriver extends DriverDecorator {
+public class LoggingDriver extends DriverDecorator implements JavascriptExecutor {
     public LoggingDriver(Driver driver) {
         super(driver);
     }
@@ -39,5 +40,15 @@ public class LoggingDriver extends DriverDecorator {
     public List<Element> findElements(By locator) {
         System.out.print(String.format("find elements"));
         return driver.findElements(locator);
+    }
+
+    @Override
+    public Object executeScript(String script, Object... args) {
+        return ((JavascriptExecutor) driver).executeScript(script, args);
+    }
+
+    @Override
+    public Object executeAsyncScript(String script, Object... args) {
+        return ((JavascriptExecutor) driver).executeAsyncScript(script, args);
     }
 }
