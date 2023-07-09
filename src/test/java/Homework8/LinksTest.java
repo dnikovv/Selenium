@@ -1,18 +1,16 @@
 package Homework8;
-
 import base.BaseClass;
 import base.HttpUtils;
+import base.LoggingDriver;
+import base.WebCoreDriver;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import pages.LinksPage;
-
 import java.io.IOException;
 
 public class LinksTest extends BaseClass {
     String linksUrl = "https://demoqa.com/broken/";
-
-
     @Test
     public void verityValidLink() {
         LinksPage linksPage = new LinksPage(driver);
