@@ -1,8 +1,6 @@
 package Homework8;
 import base.BaseClass;
 import base.HttpUtils;
-import base.LoggingDriver;
-import base.WebCoreDriver;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
@@ -15,9 +13,10 @@ public class LinksTest extends BaseClass {
     public void verityValidLink() {
         LinksPage linksPage = new LinksPage(driver);
         driver.goToUrl(linksUrl);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 200)");
         driver.slowdownBetweenSteps(2);
-        Assert.assertTrue(linksPage.validLibnk().isDisplayed());
-        linksPage.validLibnk().click();
+        linksPage.clickOnValidLink();
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.equals("https://demoqa.com/"));
     }
@@ -30,7 +29,7 @@ public class LinksTest extends BaseClass {
         js.executeScript("window.scrollBy(0, 200)");
         driver.slowdownBetweenSteps(2);
         String brokenLinkUrl = linksPage.brokenLink().getAttribute("href");
-        linksPage.brokenLink().click();
+        linksPage.clickOnBrokenLink();
         int statusCode = HttpUtils.getStatusCode(brokenLinkUrl);
         Assert.assertEquals("The status code is not 500.", 500, statusCode);
     }

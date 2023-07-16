@@ -3,7 +3,6 @@ package pages;
 import base.Driver;
 import base.Element;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 
 public class TextBox {
     public final Driver driver;
@@ -31,4 +30,23 @@ public class TextBox {
     public Element output(){
         return driver.findElement(By.id("output"));
     }
+
+    public void typeUsername(String text){
+        userNameField().typeText(text);
+    }
+    public void typeUserEmail(String text){
+        userEmail().typeText(text);
+    }
+    public void typeCurrentAddress(String text){
+        currentAddress().typeText(text);
+    }
+    public void typePermanentAddress(String text){
+        permanentAddress().typeText(text);
+    }
+
+    public void clickSubmitBtn(){
+        submitBtn().submit();
+    }
+
+
 }

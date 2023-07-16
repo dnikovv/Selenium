@@ -3,6 +3,7 @@ package pages;
 import base.Driver;
 import base.Element;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RadioButton {
     public final Driver driver;
